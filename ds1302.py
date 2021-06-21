@@ -93,7 +93,7 @@ class DS1302:
         byte_l[3] = (dt.tm_mday // 10) << 4 | dt.tm_mday % 10
         byte_l[4] = (dt.tm_mon // 10) << 4 | dt.tm_mon % 10
         byte_l[5] = 0
-        byte_l[6] = ((dt.tm_year-2000 // 10) << 4) | (dt.tm_year-2000) % 10
+        byte_l[6] = (((dt.tm_year-2000) // 10) << 4) | (dt.tm_year-2000) % 10
         self._start_tx()
         self._w_byte(0xbe)
         for byte in byte_l:
